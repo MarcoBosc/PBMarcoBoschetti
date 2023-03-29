@@ -42,7 +42,7 @@ O script será disponibilizado ao final do READ.ME.
 
 # Script em bash para criar as logs do apache.
 > !/bin/bash
-
+>
 > Verifica se o Apache está online
 > 
 > if systemctl is-active httpd.service > /dev/null; then
@@ -62,7 +62,7 @@ O script será disponibilizado ao final do READ.ME.
 > Cria o nome do arquivo com a data e hora atual
 > 
 > filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
-
+>
 > Cria o conteúdo do arquivo
 > 
 > echo "Data e Hora: $(date)" >> /efs/seu_nome/apache.logs/$filename
