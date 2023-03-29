@@ -33,27 +33,42 @@ O script será disponibilizado ao final do READ.ME.
 # Script para colocar no userdata da instância.
 
 > #!/bin/bash
+> 
 > yum update -y
+> 
 > yum install httpd -y
+> 
 > systemctl enable httpd && systemctl start httd
 
 # Script em bash para criar as logs do apache.
 > !/bin/bash
 
 > Verifica se o Apache está online
+> 
 > if systemctl is-active httpd.service > /dev/null; then
+> 
 >     status="online"
+>     
 >     message="O serviço Apache está online."
+>     
 > else
+> 
 >     status="offline"
+>     
 >     message="O serviço Apache está offline."
+>     
 > fi
-
+>
 > Cria o nome do arquivo com a data e hora atual
+> 
 > filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
 
 > Cria o conteúdo do arquivo
+> 
 > echo "Data e Hora: $(date)" >> /efs/seu_nome/apache.logs/$filename
+> 
 > echo "Nome do Serviço: Apache" >> /efs/seu_nome/apache.logs/$filename
+> 
 > echo "Status: $status" >> /efs/seu_nome/apache.logs/$filename
+> 
 > echo "Mensagem: $message" >> /efs/seu_nome/apache.logs/$filename
