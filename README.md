@@ -49,10 +49,10 @@ O script será disponibilizado ao final do READ.ME.
 >     message="O serviço Apache está offline."
 > fi
 
-> # Cria o nome do arquivo com a data e hora atual
+> Cria o nome do arquivo com a data e hora atual
 > filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
 
-> # Cria o conteúdo do arquivo
+> Cria o conteúdo do arquivo
 > echo "Data e Hora: $(date)" >> /efs/seu_nome/apache.logs/$filename
 > echo "Nome do Serviço: Apache" >> /efs/seu_nome/apache.logs/$filename
 > echo "Status: $status" >> /efs/seu_nome/apache.logs/$filename
