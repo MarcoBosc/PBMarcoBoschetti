@@ -1,0 +1,4 @@
+Data e Hora: Wed Mar 29 19:04:18 UTC 2023
+Nome do Serviço: Apache
+Status: online
+Mensagem: O serviço Apache está online.

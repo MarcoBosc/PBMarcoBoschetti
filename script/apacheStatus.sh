@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Verifica se o Apache está online
-if curl -s --head http://localhost | head -n 1 | grep "HTTP/1.[01] [23].." > /dev/null; then
+if systemctl is-active httpd.service > /dev/null; then
     status="online"
     message="O serviço Apache está online."
 else
@@ -10,7 +10,7 @@ else
 fi
 
 # Cria o nome do arquivo com a data e hora atual
-filename=$(date +"%Y%m%d_%H%M%S")_${status}_${message// /_}.txt
+filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
 
 # Cria o conteúdo do arquivo
 echo "Data e Hora: $(date)" >> /marco/$filename
