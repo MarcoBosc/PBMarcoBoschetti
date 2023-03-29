@@ -12,8 +12,12 @@ fi
 # Cria o nome do arquivo com a data e hora atual
 filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
 
+# Cria o caminho completo para o arquivo de log
+filepath=/marco/logs.apache/$filename
+
 # Cria o conteúdo do arquivo
-echo "Data e Hora: $(date)" >> /marco/$filename
-echo "Nome do Serviço: Apache" >> /marco/$filename
-echo "Status: $status" >> /marco/$filename
-echo "Mensagem: $message" >> /marco/$filename
+echo "Data e Hora: $(date)" >> $filepath
+echo "Nome do Serviço: Apache" >> $filepath
+echo "Status: $status" >> $filepath
+echo "Mensagem: $message" >> $filepath
+
