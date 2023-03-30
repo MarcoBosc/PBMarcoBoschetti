@@ -1,0 +1,4 @@
+quinta, 30 de março de 2023 - 17:10:02
+Apache status:
+Status: OK
+Mensagem: Serviço do Apache: ONLINE

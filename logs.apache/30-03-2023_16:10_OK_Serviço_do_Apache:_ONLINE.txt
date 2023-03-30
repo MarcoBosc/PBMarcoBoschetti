@@ -1,0 +1,4 @@
+Data e Hora: Thu Mar 30 16:10:02 -03 2023
+Nome do Serviço: Apache
+Status: OK
+Mensagem: Serviço do Apache: ONLINE

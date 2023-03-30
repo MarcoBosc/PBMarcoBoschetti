@@ -14,6 +14,6 @@ filepath=/efs/marco/logs.apache/$filename
 
 echo "$(LC_TIME=pt_BR.UTF-8 date -d now '+%A, %d de %B de %Y - %H:%M:%S')" >> $filepath
 echo "Apache status:" >> $filepath
-echo "Status: $status" >> $filepath
-echo "Mensagem: $message" >> $filepath
+echo "$status" >> $filepath
+echo "$message" >> $filepath
 
