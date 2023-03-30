@@ -1,4 +1,0 @@
-Data e Hora: Wed Mar 29 18:45:48 UTC 2023
-Nome do Serviço: Apache
-Status: offline
-Mensagem: O serviço Apache está offline.
