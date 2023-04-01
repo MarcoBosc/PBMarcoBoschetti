@@ -39,70 +39,70 @@ Os scripts serão disponibilizados ao final do READ.ME.
 
 # Script para adicionar no userdata da instância.
 ```bash
-   >  #!/bin/bash
-   > 
-   >  yum update -y
-   > 
-   >  yum install httpd -y
-   > 
-   >  systemctl enable httpd && systemctl start httd
+     #!/bin/bash
+    
+     yum update -y
+    
+     yum install httpd -y
+    
+     systemctl enable httpd && systemctl start httd
 ```  
 
 # Script em bash para criar as logs do apache.
 ```bash
-  > !/bin/bash
-  > 
-  > if systemctl is-active httpd.service > /dev/null; then
-  > 
-  >     status="OK"
-  >     message="Serviço do Apache: ONLINE"
-  >
-  > else
-  >  
-  >     status="ERROR"
-  >     message="Serviço do Apache: OFFLINE"
-  >     
-  > fi
-  >
-  > 
-  > filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
-  >
-  > 
-  > echo "$(LC_TIME=pt_BR.UTF-8 date -d now '+%A, %d de %B de %Y - %H:%M:%S')" >> /efs/seu_nome/apache.logs/$filename
-  > 
-  > echo "Apache status:" >> /efs/seu_nome/apache.logs/$filename
-  > 
-  > echo "Status: $status" >> /efs/seu_nome/apache.logs/$filename
-  > 
-  > echo "Mensagem: $message" >> /efs/seu_nome/apache.logs/$filename
+   !/bin/bash
+   
+   if systemctl is-active httpd.service > /dev/null; then
+   
+       status="OK"
+       message="Serviço do Apache: ONLINE"
+  
+   else
+    
+       status="ERROR"
+       message="Serviço do Apache: OFFLINE"
+       
+   fi
+  
+   
+   filename=$(date +"%d-%m-%Y_%H:%M")_${status}_${message// /_}.txt
+  
+   
+   echo "$(LC_TIME=pt_BR.UTF-8 date -d now '+%A, %d de %B de %Y - %H:%M:%S')" >> /efs/seu_nome/apache.logs/$filename
+   
+   echo "Apache status:" >> /efs/seu_nome/apache.logs/$filename
+   
+   echo "Status: $status" >> /efs/seu_nome/apache.logs/$filename
+   
+   echo "Mensagem: $message" >> /efs/seu_nome/apache.logs/$filename
    
  ``` 
 
 # Script em bash para limpar logs antigas.
 ```bash
-   > !/bin/bash
-   >
-   > log_dir="/caminho/para/diretorio/de/logs"
-   > 
-   > max_logs=1000
-   >
-   > num_logs=$(ls -1 "$log_dir" | wc -l)
-   > 
-   > deleted_logs=300
-   > 
-   > if [ $num_logs -gt $max_logs ]; then
-   > 
-   >   logs_to_delete=$((num_logs - max_logs + 300))
-   >   
-   >   if [ $logs_to_delete -gt 0 ]; then
-   >   
-   >     cd "$log_dir" || exit
-   >     
-   >     ls -t | tail -$logs_to_delete | xargs rm --
-   >     
-   >     echo "Excluídos $logs_to_delete logs antigos."
-   >     
-   >   fi
-   >   
-   > fi
+    !/bin/bash
+   
+    log_dir="/caminho/para/diretorio/de/logs"
+    
+    max_logs=1000
+   
+    num_logs=$(ls -1 "$log_dir" | wc -l)
+    
+    deleted_logs=300
+    
+    if [ $num_logs -gt $max_logs ]; then
+   
+      logs_to_delete=$((num_logs - max_logs + 300))
+      
+      if [ $logs_to_delete -gt 0 ]; then
+      
+        cd "$log_dir" || exit
+        
+        ls -t | tail -$logs_to_delete | xargs rm --
+        
+        echo "Excluídos $logs_to_delete logs antigos."
+        
+      fi
+      
+    fi
 ```
