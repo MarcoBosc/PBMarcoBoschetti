@@ -11,11 +11,11 @@ Lembre-se de adicionar o script para baixar e ativar o apache no user data (O sc
 
 > Acesse a instância via SSH através do seu terminal;
 
-> Digite o comando ```_sudo su -_``` para acessar como o usuário admnistrador;
+> Digite o comando ```sudo su -``` para acessar como o usuário admnistrador;
 
-> Digite o comando ```_cd /_``` para acessar o diretório raiz do servidor;
+> Digite o comando ```cd /``` para acessar o diretório raiz do servidor;
 
-> Crie um diretório chamado efs com o comando ```_mkdir efs_``` e acesse-o através do comando ```_cd efs_```, então use o comando para montar o EFS no diretório;
+> Crie um diretório chamado efs com o comando ```_mkdir efs_``` e acesse-o através do comando ```cd efs```, então use o comando para montar o EFS no diretório;
 Você pode ter acesso ao comando através do console da amazon, na parte de file systems onde está o seu efs criado, clique em attach e copie o comando disponibilizado pela AWS.
 
 > Digite o comando _cd/etc_ e _nano fstab_ para alterar o arquivo de inicialização e cole o comando para montar seu efs na inicialização da instância;
@@ -23,16 +23,16 @@ Exemplo de comando para montar o efs na inicialização <IP do DNS do EFS>:/ /mn
 
 Você pode tirar suas dúvidas sobre o processo de montagem automacessando o link https://docs.aws.amazon.com/pt_br/efs/latest/ug/mount-fs-auto-mount-onreboot.html
 
-> Onde você montou o efs, crie um diretório com seu nome com o camando ```_mkdir seu_nome_``` e acesse-o;
+> Onde você montou o efs, crie um diretório com seu nome com o camando ```mkdir seu_nome``` e acesse-o;
 
 > Você pode clonar o repositório ou criar o script para gerar as logs do apache e excluir logs antigas manualmente (lembre de salvar o script como .sh);
 Os scripts serão disponibilizados ao final do READ.ME.
 
-> Crie um diretório chamado apache.logs com o comando ```_mkdir apache.logs_```
+> Crie um diretório chamado apache.logs com o comando ```mkdir apache.logs```
 
 > Digite o comando ```crontab -e```;
 
-> Adicione a seguinte linha ao final do arquivo ```_*/5 * * * * /caminho/do/seu/script.sh_```;
+> Adicione a seguinte linha ao final do arquivo ```*/5 * * * * /caminho/do/seu/script.sh```;
 > Adicione outra linha ao final do arquivo ```0 0 */5 * * /caminho/do/script/de/excluir/logs.sh```;
 > Aperte a tecla "esc" seguido de ":wq" e enter para salvar as alterações do arquivo e sair.
 
