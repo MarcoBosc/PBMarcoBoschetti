@@ -36,6 +36,13 @@ Os scripts serão disponibilizados ao final do READ.ME.
 > Adicione outra linha ao final do arquivo ```0 0 */5 * * /caminho/do/script/de/excluir/logs.sh```;
 > Aperte a tecla "esc" seguido de ":wq" e enter para salvar as alterações do arquivo e sair.
 
+> Digite o comando ```sudo yum install -y mod_ssl``` para configurar o HTTPS e abrir a porta 443, vá para ```cd /etc/httpd``` e crie um diretório chamado 
+> ssl e rode o comando ```openssl req -x509 -newkey rsa:4096 -keyout apache.key -out apache.crt -days 365 -nodes``` para gerar as chaves SSL;
+
+> Rode o comando ```systemctl restart httpd```;
+
+> Se necessário comente a linha ```SSLCertificateKeyFile /etc/pki/tls/private/localhost.key``` dentro da pasta ssl.conf no diretório /etc/httpd/httpd.conf e tente reiniciar o serviço hpptd novamente;
+Em caso de dúvidas aqui está o link para a configurção do SSL em instâncias ec2: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/SSL-on-amazon-linux-2.html
 
 # Script para adicionar no userdata da instância.
 ```bash
